@@ -16,4 +16,4 @@
 4. Evaluate and print: `10 > 5 and 3 < 4`, `not (1 == 2)`.
 5. Print `Pi is approximately 3.14` using an f-string with a variable.
 
-Complete the TODOs in `starters.py`.
+Complete the TODOs in [starters.py](https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/01_basics/starters.py).

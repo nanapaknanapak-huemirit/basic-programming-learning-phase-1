@@ -17,4 +17,4 @@
 4. Write `celsius_to_f(c)` using `f = c * 9/5 + 32`.
 5. Write `count_vowels(s)` that counts a/e/i/o/u in a string.
 
-Complete the TODOs in `starters.py`.
+Complete the TODOs in [starters.py](https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/03_functions/starters.py).

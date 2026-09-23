@@ -17,4 +17,4 @@
 4. From two lists, build a set of unique elements combined.
 5. Use a list comprehension to make `[1, 4, 9, 16, 25]` from `[1..5]`.
 
-Complete the TODOs in `starters.py`.
+Complete the TODOs in [starters.py](https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/04_data_structures/starters.py).

@@ -17,4 +17,4 @@
 4. Print numbers 10 down to 1, then `"Liftoff!"`.
 5. Ask for input until the user types `quit` (use a `while` loop).
 
-Complete the TODOs in `starters.py`.
+Complete the TODOs in [starters.py](https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/02_control_flow/starters.py).

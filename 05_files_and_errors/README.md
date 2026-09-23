@@ -18,4 +18,4 @@
 4. Write `parse_int(s)` that raises `ValueError` if `s` isn't an integer; handle it in a caller.
 5. Use `finally` to print `"done"` regardless of outcome.
 
-Complete the TODOs in `starters.py`.
+Complete the TODOs in [starters.py](https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/05_files_and_errors/starters.py).

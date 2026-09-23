@@ -39,3 +39,15 @@ Then practice with [exercises]({{ site.baseurl }}/exercises/) and review [notes/
 2. Fill in the TODOs in `starters.py`
 3. Run your code: `python 01_basics/starters.py`
 4. Check your work against the prompts
+
+## Browse code
+
+All starter files and solutions are on GitHub:
+
+- [Repository file tree](https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1)
+- [01_basics/starters.py](https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/01_basics/starters.py)
+- [02_control_flow/starters.py](https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/02_control_flow/starters.py)
+- [03_functions/starters.py](https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/03_functions/starters.py)
+- [04_data_structures/starters.py](https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/04_data_structures/starters.py)
+- [05_files_and_errors/starters.py](https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/05_files_and_errors/starters.py)
+- [exercises/solutions/easy_solutions.py](https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/exercises/solutions/easy_solutions.py)

@@ -20,4 +20,4 @@ Practice problems ordered by difficulty. Try each before peeking at `solutions/`
 8. **Matrix transpose** — `transpose([[1,2],[3,4]])` → `[[1,3],[2,4]]`.
 9. **Simple bank** — A `dict`-backed account with `deposit`, `withdraw`, `balance`; `withdraw` refuses overdrafts.
 
-Write your attempts in this folder; reference solutions live in `solutions/`.
+Write your attempts in this folder; reference solutions live in `solutions/` — see [easy_solutions.py](https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/exercises/solutions/easy_solutions.py).

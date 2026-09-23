@@ -4,9 +4,15 @@ title: Basic Programming Learning – Phase 1
 
 # Basic Programming Learning – Phase 1
 
-[![QR code to this site](qr_code.png)](https://nanapaknanapak-huemirit.github.io/basic-programming-learning-phase-1/)
+<div align="center">
 
-**Open site:** https://nanapaknanapak-huemirit.github.io/basic-programming-learning-phase-1/
+![QR Code](qr_code.svg)
+
+**📱 Scan to try it on your phone!**
+
+[🔗 Live Demo](https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1)
+
+</div>
 
 A beginner-friendly Python curriculum covering programming fundamentals.
 

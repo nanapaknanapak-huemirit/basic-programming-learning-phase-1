@@ -36,6 +36,7 @@ By the end of Phase 1 you will be able to:
 | 03 | [Functions]({{ site.baseurl }}/03_functions/) |
 | 04 | [Data structures]({{ site.baseurl }}/04_data_structures/) |
 | 05 | [Files and errors]({{ site.baseurl }}/05_files_and_errors/) |
+| 06 | [Shapes]({{ site.baseurl }}/06_shapes/) — geometry terms & drawing |
 
 Then practice with [exercises]({{ site.baseurl }}/exercises/) and review [notes/cheat_sheet.md]({{ site.baseurl }}/notes/cheat_sheet.md).
 
@@ -56,4 +57,5 @@ All starter files and solutions are on GitHub:
 - [03_functions/starters.py](https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/03_functions/starters.py)
 - [04_data_structures/starters.py](https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/04_data_structures/starters.py)
 - [05_files_and_errors/starters.py](https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/05_files_and_errors/starters.py)
+- [06_shapes/starters.py](https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/06_shapes/starters.py)
 - [exercises/solutions/easy_solutions.py](https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/exercises/solutions/easy_solutions.py)

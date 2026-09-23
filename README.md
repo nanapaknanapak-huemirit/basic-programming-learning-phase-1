@@ -42,6 +42,7 @@ pip install -r requirements.txt
 | 03 | Functions |
 | 04 | Data structures |
 | 05 | Files and errors |
+| 06 | Shapes — geometry terms & drawing |
 
 Then practice with `exercises/` and review `notes/cheat_sheet.md`.
 

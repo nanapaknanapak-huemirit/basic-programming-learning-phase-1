@@ -9,8 +9,10 @@ import turtle
 
 
 def draw_square(t, side=100):
-    # TODO: loop 4 times: forward(side), left(90)
-    pass
+    # 4 vertices, 4 edges, interior angle sum = (4 - 2) * 180 = 360°
+    for _ in range(4):
+        t.forward(side)
+        t.left(90)
 
 
 # TODO 2: Draw an equilateral triangle.
@@ -18,8 +20,11 @@ def draw_square(t, side=100):
 
 
 def draw_triangle(t, side=100):
-    # TODO: loop 3 times: forward(side), left(120)
-    pass
+    # 3 vertices, 3 edges, interior angle sum = (3 - 2) * 180 = 180°
+    # Interior angle is 60°; the turtle *turns* the exterior angle 120°.
+    for _ in range(3):
+        t.forward(side)
+        t.left(120)
 
 
 # TODO 3: Draw a regular hexagon.
@@ -28,8 +33,11 @@ def draw_triangle(t, side=100):
 
 
 def draw_hexagon(t, side=80):
-    # TODO: loop 6 times: forward(side), left(60)
-    pass
+    # 6 vertices, 6 edges, interior angle sum = (6 - 2) * 180 = 720°
+    # Interior angle is 120°; the turtle *turns* the exterior angle 60°.
+    for _ in range(6):
+        t.forward(side)
+        t.left(60)
 
 
 # TODO 4: Draw an irregular quadrilateral.
@@ -38,17 +46,44 @@ def draw_hexagon(t, side=80):
 
 
 def draw_irregular_quad(t):
-    # TODO: pick 4 unequal sides and turn angles that sum to 360°
-    pass
+    # 4 vertices, 4 edges, interior angle sum = (4 - 2) * 180 = 360°.
+    # Sides differ: 80, 60, 100, 70 (all unequal).
+    # Turns 80, 100, 90, 90 — not all the same, but they sum to 360°.
+    for side, turn in [(80, 80), (60, 100), (100, 90), (70, 90)]:
+        t.forward(side)
+        t.left(turn)
+
+
+def go_to(t, x, y):
+    # Lift the pen, move to (x, y), put the pen down again.
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
 
 
 if __name__ == "__main__":
     screen = turtle.Screen()
     screen.title("Module 06 — Shapes")
+    screen.setup(width=800, height=400)
     t = turtle.Turtle()
     t.speed(3)
 
     # TODO 5: Call your draw functions with spacing between shapes,
     # then print for each shape: vertices, edges, interior angle sum.
+
+    shapes = [
+        ("Square", lambda: draw_square(t)),
+        ("Triangle", lambda: draw_triangle(t)),
+        ("Hexagon", lambda: draw_hexagon(t)),
+        ("Irregular quad", lambda: draw_irregular_quad(t)),
+    ]
+    starts = [-300, -100, 100, 300]
+    for (name, draw), x in zip(shapes, starts):
+        go_to(t, x, 0)
+        t.setheading(0)
+        draw()
+        edge_count = {"Square": 4, "Triangle": 3, "Hexagon": 6, "Irregular quad": 4}[name]
+        print(f"{name}: {edge_count} vertices, {edge_count} edges, "
+              f"interior angle sum = {edge_count * 180 - 360}°")
 
     turtle.done()

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Checker harness</title></head>
+<body>
+<pre id="out">running…</pre>
+<script src="../js/color-utils.js"></script>
+<script src="../js/challenges.js"></script>
+<script src="../js/checkers.js"></script>
+<script>
+(async function () {
+    const results = [];
+    const out = document.getElementById('out');
+
+    function buildSrcdoc(challenge, css, js) {
+        const escapedJs = String(js || '').replace(/<\/script/gi, '<\\/script');
+        const scriptTag = challenge.type === 'js' && escapedJs.trim()
+            ? '<scr' + 'ipt>\n' + escapedJs + '\n</scr' + 'ipt>' : '';
+        return '<!DOCTYPE html><html><head><style>' + css + '</style></head><body>' +
+            (challenge.targetHtml || '') + '\n' + scriptTag + '</body></html>';
+    }
+
+    function loadFrame(frame, html) {
+        return new Promise((resolve) => {
+            const onLoad = () => { frame.removeEventListener('load', onLoad); resolve(); };
+            frame.addEventListener('load', onLoad);
+            frame.srcdoc = html;
+            setTimeout(() => { frame.removeEventListener('load', onLoad); resolve(); }, 1500);
+        });
+    }
+
+    for (const c of Challenges.list) {
+        if (c.type === 'quiz') {
+            const answers = c.quiz.questions.map(q => q.answer);
+            const r = Checkers.run(c.id, {
+                challenge: c, quizAnswers: answers,
+                doc: document, win: window, utils: ColorUtils,
+                sourceCss: '', sourceJs: ''
+            });
+            results.push({ id: c.id, pass: r.pass, message: r.message });
+            continue;
+        }
+        const frame = document.createElement('iframe');
+        frame.style.cssText = 'width:800px;height:400px;';
+        document.body.appendChild(frame);
+        await loadFrame(frame, buildSrcdoc(c, c.solutionCss || '', c.solutionJs || ''));
+        // give scripts a tick
+        await new Promise(r => setTimeout(r, 80));
+        const doc = frame.contentDocument;
+        const win = frame.contentWindow;
+        let r;
+        try {
+            r = Checkers.run(c.id, {
+                challenge: c, doc, win, utils: ColorUtils,
+                sourceCss: c.solutionCss || '', sourceJs: c.solutionJs || '',
+                quizAnswers: []
+            });
+        } catch (e) {
+            r = { pass: false, message: 'threw: ' + e.message };
+        }
+        results.push({ id: c.id, pass: r.pass, message: r.message });
+        frame.remove();
+    }
+
+    const fails = results.filter(r => !r.pass);
+    out.textContent = JSON.stringify({
+        total: results.length,
+        pass: results.length - fails.length,
+        fail: fails.length,
+        results
+    }, null, 2);
+    document.title = fails.length ? 'FAIL:' + fails.length : 'ALL_PASS';
+})();
+</script>
+</body>
+</html>

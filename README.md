@@ -6,7 +6,7 @@
 
 **📱 Scan to try it on your phone!**
 
-[🔗 Live Demo](https://nanapaknanapak-huemirit.github.io/basic-programming-learning-phase-1/)
+[🔗 Live Demo](https://nanapaknanapak-huemirit.github.io/basic-programming-learning-phase-1/07_css_color_challenges/)
 
 </div>
 
@@ -43,8 +43,9 @@ pip install -r requirements.txt
 | 04 | Data structures |
 | 05 | Files and errors |
 | 06 | Shapes — geometry terms & drawing |
+| 07 | CSS Color Challenges — colors, shapes, and friendly practice |
 
-Then practice with `exercises/` and review `notes/cheat_sheet.md`.
+Then practice with `exercises/` and review `notes/cheat_sheet.md`. Open `07_css_color_challenges/` for the browser-based CSS activity with 12 color challenges, 20 shape matches, optional learner names, and English read-aloud.
 
 ## How to use each module
 

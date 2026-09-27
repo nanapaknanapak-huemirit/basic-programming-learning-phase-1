@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Progressive CSS color challenges and shape matching with live editing and friendly practice.">
+    <title>CSS Color Challenges</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="celebration" id="celebration" hidden aria-hidden="true"></div>
+
+    <noscript>
+        <div class="noscript-banner" role="alert">
+            <strong>JavaScript is required.</strong>
+            Enable JavaScript to use the live editor, check solutions, and track progress.
+            <a href="https://nanapaknanapak-huemirit.github.io/css-color-challenges/">Open the live demo</a>
+        </div>
+    </noscript>
+
+    <div class="fatal-error" id="fatalError" role="alert" hidden>
+        <strong>Something went wrong while loading the app.</strong>
+        <span class="fatal-error-msg" id="fatalErrorMsg"></span>
+        <button type="button" class="btn btn-secondary fatal-error-reload" onclick="location.reload()">Reload</button>
+    </div>
+
+    <header class="site-header">
+        <div class="brand">
+            <span class="brand-mark" aria-hidden="true">🎨</span>
+            <div class="brand-text">
+                <h1>CSS Color Challenges</h1>
+                <p class="brand-sub">Progressive challenges to learn CSS through colors</p>
+            </div>
+        </div>
+        <div class="progress-block">
+            <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="12" aria-label="Overall progress">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <span class="progress-label" id="progressLabel">0 / 12 complete</span>
+        </div>
+    </header>
+
+    <section class="learning-tools" aria-label="Learning tools">
+        <div class="learning-tools-copy">
+            <p class="learning-tools-greeting" id="greetingText">Welcome! Ready to explore colors?</p>
+            <p class="learning-tools-status" id="profileStatus" role="status">No name saved. You can stay anonymous.</p>
+        </div>
+        <form class="profile-form" id="profileForm">
+            <label for="nameInput">Your first name</label>
+            <input id="nameInput" name="name" type="text" maxlength="40" autocomplete="given-name" placeholder="Optional">
+            <button type="submit" class="btn btn-secondary">Save name</button>
+            <button type="button" class="btn btn-ghost" id="profileAction">Skip name</button>
+        </form>
+        <div class="audio-tools">
+            <button type="button" class="btn btn-secondary" id="readGreetingBtn">Read greeting</button>
+            <label for="voiceSelect">English voice</label>
+            <select id="voiceSelect" aria-label="English voice">
+                <option value="">Automatic English voice</option>
+            </select>
+            <label for="volumeControl">Volume</label>
+            <input id="volumeControl" type="range" min="0" max="1" step="0.05" value="0.9" aria-label="Read-aloud volume">
+            <span class="audio-status" id="audioStatus" role="status"></span>
+        </div>
+    </section>
+
+    <div class="activity-switch">
+        <nav class="level-tabs" id="levelTabs" role="tablist" aria-label="Challenge levels">
+        <!-- Static skeleton (replaced by JS on boot) -->
+        <button type="button" class="level-tab active" data-skeleton role="tab" aria-selected="true">
+            <span class="level-tab-name">Level 1 · Basics</span>
+            <span class="level-tab-days">Days 1–3</span>
+            <span class="level-tab-count">0/3</span>
+        </button>
+        <button type="button" class="level-tab" data-skeleton role="tab" aria-selected="false">
+            <span class="level-tab-name">Level 2 · Intermediate</span>
+            <span class="level-tab-days">Days 4–7</span>
+            <span class="level-tab-count">0/4</span>
+        </button>
+        <button type="button" class="level-tab" data-skeleton role="tab" aria-selected="false">
+            <span class="level-tab-name">Level 3 · Applied</span>
+            <span class="level-tab-days">Days 8–12</span>
+            <span class="level-tab-count">0/5</span>
+        </button>
+        </nav>
+        <button type="button" class="shape-mode-tab" id="shapeModeBtn" aria-pressed="false">
+            <span class="shape-mode-name">Shape Match</span>
+            <span class="shape-mode-count" id="shapeModeCount">0/20</span>
+        </button>
+    </div>
+
+    <main class="layout">
+        <aside class="sidebar">
+            <h2 class="sidebar-title">Challenges</h2>
+            <div class="challenge-list" id="challengeList">
+                <!-- Static Level 1 skeleton (replaced by JS on boot) -->
+                <button type="button" class="challenge-card active" data-skeleton disabled>
+                    <span class="badge badge-num">1</span>
+                    <span class="challenge-card-text">
+                        <span class="challenge-card-title">Color Naming</span>
+                        <span class="challenge-card-tag">Five boxes, five named colors</span>
+                    </span>
+                </button>
+                <button type="button" class="challenge-card" data-skeleton disabled>
+                    <span class="badge badge-num">2</span>
+                    <span class="challenge-card-text">
+                        <span class="challenge-card-title">Hex Hunt</span>
+                        <span class="challenge-card-tag">Match 10 targets with #hex only</span>
+                    </span>
+                </button>
+                <button type="button" class="challenge-card" data-skeleton disabled>
+                    <span class="badge badge-num">3</span>
+                    <span class="challenge-card-text">
+                        <span class="challenge-card-title">RGB Mixer</span>
+                        <span class="challenge-card-tag">Build a gradient with rgb() values</span>
+                    </span>
+                </button>
+            </div>
+        </aside>
+
+        <section class="workspace">
+            <header class="challenge-header">
+                <p class="challenge-meta" id="metaLevel">Level 1 · Basics · Days 1–3</p>
+                <h2 class="challenge-title" id="challengeTitle">Color Naming</h2>
+                <p class="challenge-tagline" id="challengeTagline">Five boxes, five named colors</p>
+                <p class="challenge-description" id="challengeDescription">Recreate the target using only CSS named colors (red, teal, coral…). No hex, rgb(), or hsl() allowed.</p>
+                <div class="chips" id="conceptChips">
+                    <span class="chip">named colors</span>
+                    <span class="chip">background-color</span>
+                </div>
+            </header>
+
+            <div class="panes" id="panes">
+                <div class="pane" id="targetPane">
+                    <div class="pane-label">Target</div>
+                    <iframe
+                        id="targetFrame"
+                        title="Target visual"
+                        loading="lazy"
+                        srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{height:100%;margin:0}body{display:flex;align-items:center;justify-content:center;background:#f4f4f8;color:#666;font-family:system-ui,sans-serif;font-size:14px}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Loading target…&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+                </div>
+                <div class="pane">
+                    <div class="pane-label pane-label-preview">Your preview</div>
+                    <iframe
+                        id="previewFrame"
+                        title="Your live preview"
+                        srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{height:100%;margin:0}body{display:flex;align-items:center;justify-content:center;background:#f4f4f8;color:#666;font-family:system-ui,sans-serif;font-size:14px}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Loading preview…&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+                </div>
+            </div>
+
+            <div class="editor-block" id="editorBlock">
+                <div class="editor-tabs" role="tablist" aria-label="Code editors">
+                    <button type="button" class="editor-tab active" id="cssTab" role="tab" aria-selected="true">CSS</button>
+                    <button type="button" class="editor-tab editor-tab-js" id="jsTab" hidden role="tab" aria-selected="false">JS</button>
+                </div>
+
+                <div class="code-pane" id="codePane">
+                    <label class="visually-hidden" for="cssEditor">CSS editor</label>
+                    <textarea
+                        id="cssEditor"
+                        class="code-editor"
+                        spellcheck="false"
+                        autocomplete="off"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        rows="14"
+                        placeholder="/* write your CSS here */"></textarea>
+
+                    <div class="js-pane" id="jsPane" hidden>
+                        <label class="visually-hidden" for="jsEditor">JavaScript editor</label>
+                        <textarea
+                            id="jsEditor"
+                            class="code-editor"
+                            spellcheck="false"
+                            autocomplete="off"
+                            autocorrect="off"
+                            autocapitalize="off"
+                            rows="10"
+                            placeholder="// write your JavaScript here"></textarea>
+                    </div>
+                </div>
+
+                <div class="quiz-pane" id="quizPane" hidden>
+                    <form id="quizList" class="quiz-list"></form>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button type="button" class="btn btn-primary" id="checkBtn">Check solution</button>
+                <button type="button" class="btn btn-secondary" id="resetBtn">Reset</button>
+                <button type="button" class="btn btn-ghost" id="peekBtn">👁 Peek solution</button>
+                <button type="button" class="btn btn-ghost" id="readChallengeBtn">Read challenge aloud</button>
+            </div>
+
+            <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+            <section class="feedback-card" id="feedbackCard" hidden>
+                <span class="feedback-icon" id="feedbackIcon" aria-hidden="true">↻</span>
+                <div>
+                    <h3 id="feedbackTitle">Keep learning!</h3>
+                    <p id="feedbackMessage"></p>
+                    <p class="feedback-hint" id="feedbackHint"></p>
+                    <details id="feedbackDetailsWrap" hidden>
+                        <summary>Technical details</summary>
+                        <p id="feedbackDetails"></p>
+                    </details>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <section class="shape-match-panel" id="shapeMatchPanel" tabindex="-1" hidden aria-labelledby="shapeMatchTitle">
+        <div class="shape-match-header">
+            <div>
+                <p class="challenge-meta">Bonus activity · CSS shapes</p>
+                <h2 id="shapeMatchTitle">Shape Match</h2>
+                <p>Match the visual target to the CSS rule that creates it.</p>
+            </div>
+            <div class="shape-header-actions">
+                <span class="shape-progress" id="shapeProgress">0 / 20 complete</span>
+                <button type="button" class="btn btn-secondary" id="shapeReadBtn">Read prompt</button>
+                <button type="button" class="btn btn-ghost" id="shapeRestartBtn">Start over</button>
+                <button type="button" class="btn btn-primary" id="backToChallengesBtn">Back to challenges</button>
+            </div>
+        </div>
+        <div class="shape-match-body">
+            <div class="shape-target-card">
+                <p class="pane-label">Target</p>
+                <div class="shape-target-canvas"><div class="shape" aria-hidden="true"></div></div>
+                <p class="shape-position" id="shapePosition">Shape 1 of 20</p>
+            </div>
+            <div class="shape-question-card">
+                <p class="shape-position" id="shapePrompt">Which CSS makes this circle?</p>
+                <h3 id="shapeTitle">Circle</h3>
+                <span class="chip" id="shapeSkill">border-radius: 50%</span>
+                <p class="shape-status" id="shapeStatus">Choose the CSS that matches the target.</p>
+                <div class="shape-choices" id="shapeChoices" role="group" aria-label="CSS choices"></div>
+                <button type="button" class="btn btn-primary shape-next" id="shapeNextBtn" hidden>Next shape</button>
+                <section class="shape-feedback" id="shapeFeedback" aria-live="polite" hidden>
+                    <span class="feedback-icon" id="shapeFeedbackIcon" aria-hidden="true">↻</span>
+                    <div>
+                        <h3 id="shapeFeedbackTitle">Not quite yet</h3>
+                        <p id="shapeFeedbackMessage"></p>
+                        <p class="feedback-hint" id="shapeFeedbackHint"></p>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <style id="shapeTargetStyle"></style>
+    </section>
+
+    <footer class="site-footer">
+        <p>
+           12 color challenges · 3 levels · 20 shape matches · progress stays on this device
+        </p>
+    </footer>
+
+    <script>
+        // Early error surface — shows the fatal banner if boot fails before app.js finishes.
+        (function () {
+            function showFatal(message) {
+                var banner = document.getElementById('fatalError');
+                var msgEl = document.getElementById('fatalErrorMsg');
+                if (!banner) return;
+                if (msgEl) msgEl.textContent = message ? ' ' + message : '';
+                banner.hidden = false;
+            }
+            window.__showFatalError = showFatal;
+            window.addEventListener('error', function (event) {
+                if (window.__appBooted) return;
+                showFatal(event && event.message ? event.message : 'Unknown script error.');
+            });
+            window.addEventListener('unhandledrejection', function (event) {
+                if (window.__appBooted) return;
+                var reason = event && event.reason;
+                showFatal(reason && reason.message ? reason.message : String(reason || 'Unhandled rejection'));
+            });
+        })();
+    </script>
+    <script src="js/color-utils.js"></script>
+    <script src="js/challenges.js"></script>
+    <script src="js/checkers.js"></script>
+    <script src="js/editor.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/learning-layer.js"></script>
+    <script src="js/shape-challenges.js"></script>
+    <script src="js/shape-match.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

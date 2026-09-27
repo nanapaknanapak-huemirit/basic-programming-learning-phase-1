@@ -37,6 +37,7 @@ By the end of Phase 1 you will be able to:
 | 04 | [Data structures]({{ site.baseurl }}/04_data_structures/) |
 | 05 | [Files and errors]({{ site.baseurl }}/05_files_and_errors/) |
 | 06 | [Shapes]({{ site.baseurl }}/06_shapes/) — geometry terms & drawing |
+| 07 | [CSS Color Challenges]({{ site.baseurl }}/07_css_color_challenges/) — 12 color challenges, 20 shape matches, and friendly practice |
 
 Then practice with [exercises]({{ site.baseurl }}/exercises/) and review [notes/cheat_sheet.md]({{ site.baseurl }}/notes/cheat_sheet.md).
 

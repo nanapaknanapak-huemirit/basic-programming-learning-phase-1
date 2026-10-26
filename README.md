@@ -53,3 +53,17 @@ Then practice with `exercises/` and review `notes/cheat_sheet.md`. Open `07_css_
 2. Fill in the TODOs in `starters.py`
 3. Run your code: `python 01_basics/starters.py`
 4. Check your work against the prompts
+
+## Additional projects
+
+### Piano Curriculum
+
+A 12-week, color-coded piano curriculum for children ages 4–6 — no note-reading required.
+
+- [Web edition](https://nanapaknanapak-huemirit.github.io/basic-programming-learning-phase-1/piano-curriculum/)
+- [Printable pack](https://nanapaknanapak-huemirit.github.io/basic-programming-learning-phase-1/piano-curriculum/printables/piano-printables.html)
+- [Lesson plans and source](piano-curriculum/)
+
+<img src="piano-curriculum/qr_code.svg" alt="QR code linking to the piano curriculum web edition" width="150">
+
+Scan the code to open the web edition.

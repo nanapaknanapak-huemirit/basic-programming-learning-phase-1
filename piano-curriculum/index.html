@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Little Rainbows Piano — 12-week beginner curriculum</title>
+<meta name="description" content="A playful, color-coded first piano curriculum for children ages 4–6. Twelve 30-minute lessons, printable charts, and simple melodies.">
+<style>
+  :root {
+    --red: #D32F2F;
+    --orange: #F57C00;
+    --yellow: #FBC02D;
+    --green: #388E3C;
+    --blue: #1976D2;
+    --purple: #7B1FA2;
+    --pink: #C2185B;
+    --ink: #20252b;
+    --muted: #5b6570;
+    --paper: #fffaf2;
+    --card: #ffffff;
+    --line: #e8dfd0;
+    --shadow: 0 18px 50px rgba(40, 30, 20, .10);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  a { color: var(--blue); }
+  a:hover { text-decoration-thickness: 2px; }
+  .skip {
+    position: absolute; left: -999px; top: 0; background: #fff;
+    padding: .75rem 1rem; z-index: 20; border: 2px solid var(--ink);
+  }
+  .skip:focus { left: 1rem; top: 1rem; }
+  .wrap { width: min(1120px, calc(100% - 2.5rem)); margin: 0 auto; }
+
+  .site-header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(255, 250, 242, .92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .header-inner {
+    min-height: 68px; display: flex; align-items: center;
+    justify-content: space-between; gap: 1rem;
+  }
+  .brand {
+    display: flex; align-items: center; gap: .7rem;
+    color: var(--ink); text-decoration: none; font-weight: 800;
+    letter-spacing: -.01em;
+  }
+  .brand-mark { display: flex; gap: 3px; }
+  .brand-mark span {
+    width: 10px; height: 22px; border-radius: 5px; display: block;
+  }
+  .brand-mark span:nth-child(1) { background: var(--red); }
+  .brand-mark span:nth-child(2) { background: var(--orange); }
+  .brand-mark span:nth-child(3) { background: var(--yellow); }
+  .brand-mark span:nth-child(4) { background: var(--green); }
+  .brand-mark span:nth-child(5) { background: var(--blue); }
+  .brand-mark span:nth-child(6) { background: var(--purple); }
+  nav { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
+  nav a {
+    color: var(--muted); text-decoration: none; font-size: .92rem;
+    font-weight: 650;
+  }
+  nav a:hover { color: var(--ink); }
+
+  .hero {
+    display: grid; grid-template-columns: 1.35fr .75fr;
+    gap: 3rem; align-items: center; padding: 4.5rem 0 3.5rem;
+  }
+  .eyebrow {
+    margin: 0 0 .9rem; color: var(--red); font-weight: 800;
+    text-transform: uppercase; letter-spacing: .12em; font-size: .76rem;
+  }
+  h1 {
+    margin: 0; font-size: clamp(2.6rem, 6vw, 4.6rem);
+    line-height: 1.02; letter-spacing: -.045em;
+  }
+  .lede {
+    font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--muted);
+    max-width: 40rem; margin: 1.3rem 0 0;
+  }
+  .actions { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1.8rem; }
+  .button {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: .8rem 1.2rem; border-radius: 999px;
+    text-decoration: none; font-weight: 750; border: 1.5px solid var(--ink);
+    color: var(--ink); background: transparent;
+  }
+  .button:hover { background: #fff; }
+  .button.primary { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .button.primary:hover { background: #000; }
+  .badges {
+    display: flex; flex-wrap: wrap; gap: .5rem; list-style: none;
+    padding: 0; margin: 1.5rem 0 0;
+  }
+  .badges li {
+    border: 1px solid var(--line); background: #fff;
+    border-radius: 999px; padding: .3rem .75rem; font-size: .84rem;
+    color: var(--muted); font-weight: 650;
+  }
+
+  .qr-card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 24px; padding: 1.5rem; text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .qr-card img {
+    width: 210px; height: 210px; max-width: 100%; display: block;
+    margin: 0 auto .9rem; background: #fff; border-radius: 12px;
+  }
+  .qr-card h2 { margin: 0; font-size: 1.15rem; letter-spacing: -.01em; }
+  .qr-card p { margin: .35rem 0 .8rem; color: var(--muted); font-size: .9rem; }
+  .qr-card code {
+    display: block; font-size: .68rem; color: var(--muted);
+    overflow-wrap: anywhere; line-height: 1.45;
+  }
+
+  section { padding: 3.4rem 0; border-top: 1px solid var(--line); }
+  .section-head { max-width: 46rem; margin-bottom: 2rem; }
+  h2 {
+    margin: 0 0 .5rem; font-size: clamp(1.7rem, 3vw, 2.4rem);
+    letter-spacing: -.03em; line-height: 1.1;
+  }
+  .section-head p { margin: 0; color: var(--muted); }
+
+  .cards {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+  }
+  .card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 18px; padding: 1.25rem; display: flex;
+    flex-direction: column; gap: .45rem;
+  }
+  .card .dot {
+    width: 34px; height: 34px; border-radius: 50%; display: grid;
+    place-items: center; color: #fff; font-weight: 800; font-size: .9rem;
+    margin-bottom: .35rem;
+  }
+  .card h3 { margin: 0; font-size: 1rem; }
+  .card p { margin: 0; color: var(--muted); font-size: .9rem; flex: 1; }
+  .card a { font-weight: 700; font-size: .9rem; text-decoration: none; }
+  .card a:hover { text-decoration: underline; }
+
+  .units { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  .unit {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 20px; overflow: hidden;
+  }
+  .unit-head { padding: 1rem 1.2rem .8rem; border-bottom: 1px solid var(--line); }
+  .unit-head .kicker {
+    display: block; font-size: .7rem; text-transform: uppercase;
+    letter-spacing: .12em; font-weight: 800; color: var(--muted);
+  }
+  .unit-head h3 { margin: .2rem 0 0; font-size: 1.2rem; letter-spacing: -.01em; }
+  .unit-1 .unit-head { background: #fdeceb; }
+  .unit-2 .unit-head { background: #eaf5ee; }
+  .unit-3 .unit-head { background: #eaf1fb; }
+  .unit ol { margin: 0; padding: .5rem 1.2rem 1.1rem; list-style: none; }
+  .unit li { border-bottom: 1px dashed var(--line); }
+  .unit li:last-child { border-bottom: 0; }
+  .unit li a {
+    display: flex; gap: .6rem; align-items: baseline; padding: .55rem 0;
+    color: var(--ink); text-decoration: none; font-size: .92rem;
+  }
+  .unit li a:hover { color: var(--blue); }
+  .unit li span {
+    font-variant-numeric: tabular-nums; color: var(--muted);
+    font-size: .78rem; min-width: 1.1rem;
+  }
+
+  .swatches { display: grid; grid-template-columns: repeat(7, 1fr); gap: .7rem; }
+  .swatch {
+    border-radius: 16px; min-height: 92px; color: #fff;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; border: 1px solid rgba(0,0,0,.12);
+  }
+  .swatch .letter { font-size: 1.7rem; font-weight: 800; line-height: 1; }
+  .swatch .name { font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; }
+  .swatch .shape { font-size: .9rem; line-height: 1.4; }
+  .swatch.yellow, .swatch.orange { color: #111; }
+  .swatch.red { background: var(--red); }
+  .swatch.orange { background: var(--orange); }
+  .swatch.yellow { background: var(--yellow); }
+  .swatch.green { background: var(--green); }
+  .swatch.blue { background: var(--blue); }
+  .swatch.purple { background: var(--purple); }
+  .swatch.pink { background: var(--pink); }
+  .note { color: var(--muted); font-size: .9rem; margin: 1.2rem 0 0; }
+
+  .start-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 2rem; align-items: start; }
+  .steps { margin: 0; padding: 0; list-style: none; counter-reset: step; }
+  .steps li {
+    counter-increment: step; position: relative; padding: 0 0 1.2rem 3rem;
+    border-left: 2px solid var(--line); margin-left: 1rem;
+  }
+  .steps li:last-child { border-left-color: transparent; padding-bottom: 0; }
+  .steps li::before {
+    content: counter(step); position: absolute; left: -1.05rem; top: -.1rem;
+    width: 2rem; height: 2rem; border-radius: 50%; background: var(--ink);
+    color: #fff; display: grid; place-items: center; font-weight: 800;
+    font-size: .82rem;
+  }
+  .steps strong { display: block; }
+  .steps span { color: var(--muted); font-size: .92rem; }
+  .start-panel {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 22px; padding: 1.4rem; box-shadow: var(--shadow);
+  }
+  .start-panel h3 { margin: 0 0 .4rem; font-size: 1.1rem; }
+  .start-panel p { margin: 0 0 1rem; color: var(--muted); font-size: .93rem; }
+  .start-panel .actions { margin-top: 0; }
+  .start-panel .button { font-size: .9rem; min-height: 44px; }
+
+  footer {
+    border-top: 1px solid var(--line); padding: 2.2rem 0 3rem;
+    color: var(--muted); font-size: .87rem;
+  }
+  .footer-inner { display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+  footer a { color: var(--muted); }
+  footer nav { gap: .9rem; }
+
+  :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; gap: 2rem; padding-top: 3rem; }
+    .qr-card { max-width: 360px; }
+    .cards { grid-template-columns: repeat(2, 1fr); }
+    .units { grid-template-columns: 1fr; }
+    .start-grid { grid-template-columns: 1fr; }
+    nav a:not(.nav-cta) { display: none; }
+    .nav-cta {
+      border: 1.5px solid var(--ink); border-radius: 999px;
+      padding: .35rem .8rem; color: var(--ink);
+    }
+  }
+  @media (max-width: 620px) {
+    .cards { grid-template-columns: 1fr; }
+    .swatches { grid-template-columns: repeat(4, 1fr); }
+    .swatch { min-height: 78px; }
+    .swatch .letter { font-size: 1.35rem; }
+    .header-inner { min-height: 60px; }
+    .brand { font-size: .95rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="./" aria-label="Little Rainbows Piano home">
+      <span class="brand-mark" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </span>
+      Little Rainbows Piano
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#inside">What's inside</a>
+      <a href="#path">Lessons</a>
+      <a href="#colors">Colors</a>
+      <a class="nav-cta" href="printables/piano-printables.html">Printables</a>
+      <a href="https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/tree/main/piano-curriculum">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Ages 4–6 · 12 weeks · 30 minutes</p>
+        <h1>Little Rainbows Piano</h1>
+        <p class="lede">
+          A playful first piano course where every note has a color. Children
+          start by finding red C and blue G, then follow color charts into
+          simple melodies — and finish by reading the same notes on a staff.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="printables/piano-printables.html">Open the printable pack</a>
+          <a class="button" href="https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/piano-curriculum/00-teacher-guide.md">Read the teacher guide</a>
+        </div>
+        <ul class="badges">
+          <li>No note-reading needed</li>
+          <li>Color + letter + shape cues</li>
+          <li>Print-ready A4 pages</li>
+        </ul>
+      </div>
+
+      <aside class="qr-card" aria-labelledby="qr-title">
+        <img src="qr_code.svg" width="210" height="210" alt="QR code linking to the Little Rainbows Piano web edition">
+        <h2 id="qr-title">Scan to open</h2>
+        <p>Point your phone camera at the code.</p>
+        <code>nanapaknanapak-huemirit.github.io/basic-programming-learning-phase-1/piano-curriculum/</code>
+      </aside>
+    </section>
+  </div>
+
+  <section id="inside">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>What's inside</h2>
+        <p>Everything a grown-up needs to teach the first twelve weeks, plus
+        sheets the child can color, cut out, and keep.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="dot" style="background:var(--red)">12</div>
+          <h3>Lesson plans</h3>
+          <p>Twelve complete 30-minute lessons with warm-ups, games, songs, and home cards.</p>
+          <a href="https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/tree/main/piano-curriculum/lessons">Browse the lessons →</a>
+        </article>
+        <article class="card">
+          <div class="dot" style="background:var(--orange)">G</div>
+          <h3>Teacher guide</h3>
+          <p>Set-up, hand shape, rhythm language, assessment, and adaptations for different children.</p>
+          <a href="https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/piano-curriculum/00-teacher-guide.md">Read the guide →</a>
+        </article>
+        <article class="card">
+          <div class="dot" style="background:var(--green)">♪</div>
+          <h3>Song charts</h3>
+          <p>Hot Cross Buns, Mary Had a Little Lamb, Twinkle, Ode to Joy, Jingle Bells, and echo games.</p>
+          <a href="https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/piano-curriculum/song-charts/all-songs.md">Open the charts →</a>
+        </article>
+        <article class="card">
+          <div class="dot" style="background:var(--blue)">16</div>
+          <h3>Printable pack</h3>
+          <p>Sixteen A4 pages: color cards, keyboard maps, worksheets, song charts, and a certificate.</p>
+          <a href="printables/piano-printables.html">Open the pack →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="path">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>The 12-week path</h2>
+        <p>Three small units, one new idea at a time. Repeat a lesson whenever
+        the child is happy and successful.</p>
+      </div>
+      <div class="units">
+        <article class="unit unit-1">
+          <div class="unit-head">
+            <span class="kicker">Unit 1 · Weeks 1–4</span>
+            <h3>Explore</h3>
+          </div>
+          <ol>
+            <li><a href="https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/piano-curriculum/lessons/lesson-01.md"><span>1</span> Hello, Piano!</a></li>
+            <li><a href="https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/piano-curriculum/lessons/lesson-02.md"><span>2</span> Loud, Soft, Fast, Slow</a></li>
+            <li><a href="https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/piano-curriculum/lessons/lesson-03.md"><span>3</span> The Rainbow Keys</a></li>
+            <li><a href="https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/piano-curriculum/lessons/lesson-04.md"><span>4</span> Steady Beat and the Cuckoo</a></li>
+          </ol>
+        </article>
+        <article class="unit unit-2">
+          <div class="unit-head">
+            <span class="kicker">Unit 2 · Weeks 5–8</span>
+            <h3>Colors make music</h3>
+          </div>
+          <ol>
+            <li><a href="https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/piano-curriculum/lessons/lesson-05.md"><span>5</span> Hot Cross Buns</a></li>
+            <li><a href="https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/piano-curriculum/lessons/lesson-06.md"><span>6</span> Walk and Run-ning</a></li>
+            <li><a href="https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/piano-curriculum/lessons/lesson-07.md"><span>7</span> Mary Had a Little Lamb</a></li>
+            <li><a href="https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/piano-curriculum/lessons/lesson-08.md"><span>8</span> Color Chart Challenge</a></li>
+          </ol>
+        </article>
+        <article class="unit unit-3">
+          <div class="unit-head">
+            <span class="kicker">Unit 3 · Weeks 9–12</span>
+            <h3>Colors become notes</h3>
+          </div>
+          <ol>
+            <li><a href="https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/piano-curriculum/lessons/lesson-09.md"><span>9</span> From Colors to Lines</a></li>
+            <li><a href="https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/piano-curriculum/lessons/lesson-10.md"><span>10</span> Steps and Skips</a></li>
+            <li><a href="https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/piano-curriculum/lessons/lesson-11.md"><span>11</span> Two Hands</a></li>
+            <li><a href="https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/piano-curriculum/lessons/lesson-12.md"><span>12</span> Recital and Create</a></li>
+          </ol>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="colors">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>One color, one key</h2>
+        <p>The palette matches common Boomwhacker and desk-bell sets, so the
+        same charts work in group lessons.</p>
+      </div>
+      <div class="swatches" aria-label="Color to note mapping">
+        <div class="swatch red"><span class="letter">C</span><span class="name">Red</span><span class="shape" aria-hidden="true">●</span></div>
+        <div class="swatch orange"><span class="letter">D</span><span class="name">Orange</span><span class="shape" aria-hidden="true">▲</span></div>
+        <div class="swatch yellow"><span class="letter">E</span><span class="name">Yellow</span><span class="shape" aria-hidden="true">★</span></div>
+        <div class="swatch green"><span class="letter">F</span><span class="name">Green</span><span class="shape" aria-hidden="true">■</span></div>
+        <div class="swatch blue"><span class="letter">G</span><span class="name">Blue</span><span class="shape" aria-hidden="true">◆</span></div>
+        <div class="swatch purple"><span class="letter">A</span><span class="name">Purple</span><span class="shape" aria-hidden="true">♥</span></div>
+        <div class="swatch pink"><span class="letter">B</span><span class="name">Pink</span><span class="shape" aria-hidden="true">⬢</span></div>
+      </div>
+      <p class="note">Every chart also carries letter names and shape markers, so color is never the only cue. Say “red circle C.”</p>
+    </div>
+  </section>
+
+  <section id="start">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Start here</h2>
+        <p>You need a piano or keyboard, a few colored stickers, and five
+        minutes of practice a day.</p>
+      </div>
+      <div class="start-grid">
+        <ol class="steps">
+          <li><strong>Print the pack.</strong><span>Use A4, portrait, 100% scale, in color. Cut out the seven color cards.</span></li>
+          <li><strong>Sticker the keys.</strong><span>Place one dot on C–B in the middle octave. Start with red C.</span></li>
+          <li><strong>Teach Lesson 1.</strong><span>No note names, no finger numbers — just gentle sounds and high/low.</span></li>
+          <li><strong>Practise five minutes a day.</strong><span>Short and happy beats long and tired.</span></li>
+        </ol>
+        <aside class="start-panel">
+          <h3>Ready to print?</h3>
+          <p>The printable pack has everything: wall chart, keyboard map, color
+          cards, worksheets, song charts, progress tracker, and certificate.</p>
+          <div class="actions">
+            <a class="button primary" href="printables/piano-printables.html">Open the 16-page pack</a>
+          </div>
+          <p style="margin-top:1rem; margin-bottom:0;">Prefer to read on GitHub?
+            <a href="https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/tree/main/piano-curriculum">Browse the source →</a>
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <strong>Little Rainbows Piano</strong><br>
+      A 12-week color-coded beginner course for ages 4–6.
+    </div>
+    <nav aria-label="Footer navigation">
+      <a href="https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/piano-curriculum/parent-guide.md">Parent guide</a>
+      <a href="https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/piano-curriculum/progress-tracker.md">Progress tracker</a>
+      <a href="printables/piano-printables.html">Printables</a>
+      <a href="https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1">GitHub</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

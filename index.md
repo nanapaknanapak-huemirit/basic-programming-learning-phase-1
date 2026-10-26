@@ -60,3 +60,15 @@ All starter files and solutions are on GitHub:
 - [05_files_and_errors/starters.py](https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/05_files_and_errors/starters.py)
 - [06_shapes/starters.py](https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/06_shapes/starters.py)
 - [exercises/solutions/easy_solutions.py](https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/blob/main/exercises/solutions/easy_solutions.py)
+
+## Additional projects
+
+### Piano Curriculum
+
+A 12-week, color-coded piano curriculum for children ages 4–6 — no note-reading required.
+
+- [Web edition]({{ site.baseurl }}/piano-curriculum/)
+- [Printable pack]({{ site.baseurl }}/piano-curriculum/printables/piano-printables.html)
+- [Lesson plans and source](https://github.com/nanapaknanapak-huemirit/basic-programming-learning-phase-1/tree/main/piano-curriculum)
+
+<img src="{{ site.baseurl }}/piano-curriculum/qr_code.svg" alt="QR code linking to the piano curriculum web edition" width="150">

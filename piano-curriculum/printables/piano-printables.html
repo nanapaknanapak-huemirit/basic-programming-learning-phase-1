@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Little Rainbows Piano — Printables</title>
+<style>
+  :root {
+    --red: #D32F2F;
+    --orange: #F57C00;
+    --yellow: #FBC02D;
+    --green: #388E3C;
+    --blue: #1976D2;
+    --purple: #7B1FA2;
+    --pink: #C2185B;
+    --ink: #222;
+    --paper: #fff;
+  }
+  * { box-sizing: border-box; }
+  @page { size: A4 portrait; margin: 10mm; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Trebuchet MS", Verdana, sans-serif;
+    color: var(--ink);
+    background: #dcdcdc;
+  }
+  .no-print {
+    max-width: 190mm; margin: 12mm auto 4mm; padding: 6mm 8mm;
+    background: #fff; border-left: 5mm solid var(--blue); border-radius: 3mm;
+    font-size: 10pt; line-height: 1.5;
+  }
+  .no-print h1 { margin: 0 0 2mm; font-size: 15pt; }
+  .page {
+    width: 190mm; min-height: 267mm; padding: 8mm;
+    margin: 0 auto 10mm; background: var(--paper);
+    page-break-after: always; position: relative; overflow: hidden;
+  }
+  .page:last-child { page-break-after: auto; }
+  @media print {
+    body { background: none; }
+    .no-print { display: none; }
+    .page { margin: 0; width: auto; min-height: 0; padding: 0; box-shadow: none; }
+  }
+  h2 { font-size: 22pt; margin: 0 0 2mm; letter-spacing: .3mm; }
+  h3 { font-size: 13pt; margin: 0 0 2mm; }
+  .sub { font-size: 10pt; color: #555; margin: 0 0 6mm; }
+  .center { text-align: center; }
+  .small { font-size: 9pt; color: #555; }
+
+  /* ---------- color cards ---------- */
+  .legend-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin-top: 4mm; }
+  .color-card {
+    border: 1.2mm solid rgba(0,0,0,.18); border-radius: 5mm;
+    padding: 4mm 2mm; text-align: center; color: #fff;
+    min-height: 42mm; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+  }
+  .color-card .letter { font-size: 34pt; font-weight: bold; line-height: 1; }
+  .color-card .shape { font-size: 17pt; line-height: 1.2; }
+  .color-card .name { font-size: 10pt; text-transform: uppercase; letter-spacing: .4mm; }
+  .color-card .finger { font-size: 9pt; opacity: .9; }
+  .c-red { background: var(--red); }
+  .c-orange { background: var(--orange); color: #111; }
+  .c-yellow { background: var(--yellow); color: #111; }
+  .c-green { background: var(--green); }
+  .c-blue { background: var(--blue); }
+  .c-purple { background: var(--purple); }
+  .c-pink { background: var(--pink); }
+
+  /* ---------- keyboard ---------- */
+  .keyboard {
+    position: relative; display: flex; width: 100%; height: 62mm;
+    border: 1.5mm solid #222; border-radius: 2mm; background: #222;
+    overflow: hidden; margin-top: 4mm;
+  }
+  .white {
+    position: relative; flex: 1; background: #fff;
+    border-right: .5mm solid #999; height: 100%;
+    display: flex; align-items: flex-end; justify-content: center;
+    padding-bottom: 2mm;
+  }
+  .white:last-child { border-right: none; }
+  .key-label {
+    width: 10mm; height: 10mm; border-radius: 2.5mm;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: bold; font-size: 13pt;
+    border: .6mm solid rgba(0,0,0,.25);
+  }
+  .key-label.blank { background: #eee; color: #777; border-style: dashed; }
+  .key-label.finger { width: 13mm; height: 14mm; flex-direction: column; font-size: 12pt; line-height: 1; }
+  .key-label.finger small { font-size: 7pt; font-weight: normal; }
+  .black {
+    position: absolute; top: 0; width: 8%; height: 60%;
+    background: #111; border-radius: 0 0 1.5mm 1.5mm; z-index: 2;
+  }
+  .b1 { left: 8.5%; } .b2 { left: 21%; } .b3 { left: 46%; }
+  .b4 { left: 58.5%; } .b5 { left: 71%; }
+  .keyboard-note { font-size: 9pt; color: #555; margin-top: 2mm; }
+
+  /* ---------- cut-out cards ---------- */
+  .cut-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 5mm; margin-top: 3mm; }
+  .cut-card {
+    border: .8mm dashed #777; border-radius: 5mm; height: 52mm;
+    display: flex; align-items: center; justify-content: space-around;
+    padding: 3mm; color: #fff;
+  }
+  .cut-card .big { font-size: 58pt; font-weight: bold; line-height: 1; }
+  .cut-card .meta { text-align: left; font-size: 11pt; line-height: 1.5; }
+  .cut-card .meta .glyph { font-size: 22pt; }
+  .cut-card.c-yellow, .cut-card.c-orange { color: #111; }
+
+  /* ---------- notes ---------- */
+  .note {
+    width: 18mm; height: 20mm; margin: 1mm; border-radius: 3mm;
+    display: inline-flex; flex-direction: column; align-items: center;
+    justify-content: center; color: #fff; font-weight: bold;
+    border: .6mm solid rgba(0,0,0,.18); vertical-align: top;
+  }
+  .note b { font-size: 20pt; line-height: 1; }
+  .note small { font-size: 7pt; font-weight: normal; line-height: 1.1; margin-top: .6mm; }
+  .n-C { background: var(--red); }
+  .n-D { background: var(--orange); color: #111; }
+  .n-E { background: var(--yellow); color: #111; }
+  .n-F { background: var(--green); }
+  .n-G { background: var(--blue); }
+  .n-A { background: var(--purple); }
+  .n-B { background: var(--pink); }
+  .rest {
+    display: inline-flex; width: 12mm; height: 20mm; margin: 1mm;
+    align-items: center; justify-content: center; color: #888;
+    border: .5mm dashed #bbb; border-radius: 3mm; font-size: 8pt;
+  }
+  .phrase { display: flex; flex-wrap: wrap; align-items: flex-start; margin-bottom: 4mm; }
+  .phrase-label { font-size: 9pt; color: #666; margin-bottom: 1mm; }
+  .lyrics { font-size: 10pt; color: #444; margin-bottom: 2mm; }
+  .song-title { font-size: 20pt; margin: 0 0 1mm; }
+  .song-meta { font-size: 9pt; color: #555; margin-bottom: 4mm; }
+  .compact .note { width: 15mm; height: 17mm; }
+  .compact .note b { font-size: 16pt; }
+  .compact .phrase { margin-bottom: 1.5mm; }
+  .compact .rest { width: 10mm; height: 17mm; }
+  .plain .note { background: #fff !important; color: #222 !important; border: .8mm solid #333; }
+  .plain .note b { font-size: 19pt; }
+  .shapes { margin-bottom: 2mm; }
+  .shapes .note { width: 14mm; height: 15mm; margin: 1mm; }
+  .shapes .note b { font-size: 16pt; }
+  .shapes .note small { display: none; }
+  .shapes .rest { width: 10mm; height: 15mm; margin: 1mm; }
+
+  /* ---------- worksheets ---------- */
+  .worksheet-box { border: .8mm solid #999; border-radius: 4mm; padding: 5mm; margin-bottom: 5mm; }
+  .beat-row { display: flex; gap: 4mm; margin-top: 3mm; }
+  .beat {
+    flex: 1; height: 22mm; border: .8mm solid #777; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18pt; font-weight: bold; color: #555;
+  }
+  .write-line { border-bottom: .6mm dotted #888; height: 10mm; margin-top: 3mm; }
+  .compose-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin: 4mm 0; }
+  .compose-box {
+    height: 34mm; border: .8mm dashed #777; border-radius: 4mm;
+    position: relative; background: #fafafa;
+  }
+  .compose-box span {
+    position: absolute; top: 1mm; left: 2mm; font-size: 9pt; color: #999;
+  }
+  .staff-wrap { margin: 3mm 0 5mm; }
+  .staff-wrap svg { width: 100%; height: auto; display: block; }
+
+  /* ---------- progress / certificate ---------- */
+  .sticker-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin-top: 4mm; }
+  .sticker {
+    border: .8mm solid #888; border-radius: 4mm; height: 36mm;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  .sticker .num { font-size: 20pt; font-weight: bold; }
+  .sticker .star { font-size: 20pt; color: #bbb; }
+  .certificate {
+    border: 2mm double #333; border-radius: 4mm; padding: 12mm;
+    height: 240mm; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+  }
+  .certificate .rainbow { font-size: 30pt; letter-spacing: 3mm; }
+  .certificate h2 { font-size: 30pt; margin: 6mm 0; }
+  .certificate .name { font-size: 20pt; border-bottom: .8mm solid #333; width: 120mm; padding: 4mm 0; margin: 6mm 0; }
+  .certificate p { font-size: 12pt; line-height: 1.7; margin: 2mm 0; }
+  .sig { display: flex; gap: 40mm; margin-top: 18mm; font-size: 10pt; }
+  .sig div { border-top: .6mm solid #333; padding-top: 2mm; width: 60mm; }
+</style>
+</head>
+<body>
+
+<div class="no-print">
+  <h1>Little Rainbows Piano — printables</h1>
+  <p>Print A4 portrait, 100% scale, color. Pages 1–4 are teaching aids and
+  cut-outs. Pages 5–7 are worksheets and colorblind-friendly charts. Pages
+  8–12 are song charts. Pages 13–14 are composing and staff sheets. Pages
+  15–16 are the progress chart and certificate.</p>
+</div>
+
+<!-- ============ PAGE 1: WALL CHART ============ -->
+<section class="page">
+  <h2>Little Rainbows Piano</h2>
+  <p class="sub">Every color has a key, a letter, and a shape.</p>
+  <div class="legend-grid">
+    <div class="color-card c-red"><div class="letter">C</div><div class="shape">●</div><div class="name">Red</div><div class="finger">finger 1</div></div>
+    <div class="color-card c-orange"><div class="letter">D</div><div class="shape">▲</div><div class="name">Orange</div><div class="finger">finger 2</div></div>
+    <div class="color-card c-yellow"><div class="letter">E</div><div class="shape">★</div><div class="name">Yellow</div><div class="finger">finger 3</div></div>
+    <div class="color-card c-green"><div class="letter">F</div><div class="shape">■</div><div class="name">Green</div><div class="finger">finger 4</div></div>
+    <div class="color-card c-blue"><div class="letter">G</div><div class="shape">◆</div><div class="name">Blue</div><div class="finger">finger 5</div></div>
+    <div class="color-card c-purple"><div class="letter">A</div><div class="shape">♥</div><div class="name">Purple</div><div class="finger">reach up</div></div>
+    <div class="color-card c-pink"><div class="letter">B</div><div class="shape">⬢</div><div class="name">Pink</div><div class="finger">reach up</div></div>
+    <div class="color-card" style="border-style:dashed; color:#666; background:#fafafa;">
+      <div class="shape" style="font-size:26pt;">?</div>
+      <div class="name" style="color:#666;">Ask me!</div>
+      <div class="finger" style="color:#666;">find the color</div>
+    </div>
+  </div>
+  <p class="small" style="margin-top:6mm;">Say it three ways: “red circle C.” Color + shape + letter. That way every child can read the chart.</p>
+</section>
+
+<!-- ============ PAGE 2: KEYBOARD MAP ============ -->
+<section class="page">
+  <h2>The Home Octave</h2>
+  <p class="sub">Put one sticker on the front edge of each labeled white key.</p>
+  <div class="keyboard">
+    <div class="white"><span class="key-label" style="background:var(--red)">C</span></div>
+    <div class="white"><span class="key-label" style="background:var(--orange); color:#111">D</span></div>
+    <div class="white"><span class="key-label" style="background:var(--yellow); color:#111">E</span></div>
+    <div class="white"><span class="key-label" style="background:var(--green)">F</span></div>
+    <div class="white"><span class="key-label" style="background:var(--blue)">G</span></div>
+    <div class="white"><span class="key-label" style="background:var(--purple)">A</span></div>
+    <div class="white"><span class="key-label" style="background:var(--pink)">B</span></div>
+    <div class="white"><span class="key-label" style="background:var(--red)">C</span></div>
+    <div class="black b1"></div><div class="black b2"></div><div class="black b3"></div><div class="black b4"></div><div class="black b5"></div>
+  </div>
+  <p class="keyboard-note">Right hand: thumb (1) on red C, pinky (5) on blue G. Left hand: pinky (5) on red C, thumb (1) on blue G.</p>
+  <div class="worksheet-box" style="margin-top:8mm;">
+    <h3>Two black-key groups</h3>
+    <p style="font-size:11pt; line-height:1.6;">Find the group of <b>two</b> black keys. Red C is just to the left of it.
+    Find the group of <b>three</b> black keys. That is the other landmark. Trace the groups with a finger, then find C again.</p>
+    <div style="font-size:40pt; letter-spacing:6mm; text-align:center; margin-top:4mm;">▮▮ &nbsp;&nbsp; ▮▮▮</div>
+  </div>
+</section>
+
+<!-- ============ PAGE 3: CUT-OUT CARDS ============ -->
+<section class="page">
+  <h2>Color Cards</h2>
+  <p class="sub">Cut on the dashed lines. Use for echo games, color hunts, and composing.</p>
+  <div class="cut-grid">
+    <div class="cut-card c-red"><div class="big">C</div><div class="meta"><div class="glyph">●</div><div>red</div><div>finger 1</div></div></div>
+    <div class="cut-card c-orange"><div class="big">D</div><div class="meta"><div class="glyph">▲</div><div>orange</div><div>finger 2</div></div></div>
+    <div class="cut-card c-yellow"><div class="big">E</div><div class="meta"><div class="glyph">★</div><div>yellow</div><div>finger 3</div></div></div>
+    <div class="cut-card c-green"><div class="big">F</div><div class="meta"><div class="glyph">■</div><div>green</div><div>finger 4</div></div></div>
+    <div class="cut-card c-blue"><div class="big">G</div><div class="meta"><div class="glyph">◆</div><div>blue</div><div>finger 5</div></div></div>
+    <div class="cut-card c-purple"><div class="big">A</div><div class="meta"><div class="glyph">♥</div><div>purple</div><div>reach up</div></div></div>
+    <div class="cut-card c-pink"><div class="big">B</div><div class="meta"><div class="glyph">⬢</div><div>pink</div><div>reach up</div></div></div>
+  </div>
+</section>
+
+<!-- ============ PAGE 4: HAND CHART ============ -->
+<section class="page">
+  <h2>Finger Numbers</h2>
+  <p class="sub">Right hand: 1 is the thumb, 5 is the pinky. Left hand mirrors it.</p>
+  <svg viewBox="0 0 360 340" style="width:100%; max-height:120mm;" role="img" aria-label="Right hand with fingers numbered 1 to 5">
+    <g stroke="#8a5a3b" stroke-width="4" fill="#f6d5b8">
+      <rect x="35" y="175" width="46" height="112" rx="22" transform="rotate(-35 58 231)"/>
+      <rect x="95" y="50" width="40" height="130" rx="20"/>
+      <rect x="145" y="30" width="40" height="155" rx="20"/>
+      <rect x="195" y="45" width="40" height="145" rx="20"/>
+      <rect x="245" y="75" width="36" height="120" rx="18"/>
+      <rect x="80" y="150" width="200" height="150" rx="45"/>
+    </g>
+    <g fill="#fff" stroke="#333" stroke-width="3">
+      <circle cx="48" cy="268" r="16"/><circle cx="115" cy="115" r="16"/>
+      <circle cx="165" cy="100" r="16"/><circle cx="215" cy="110" r="16"/>
+      <circle cx="263" cy="135" r="16"/>
+    </g>
+    <g font-size="18" font-weight="bold" fill="#222" text-anchor="middle" font-family="Verdana, sans-serif">
+      <text x="48" y="274">1</text><text x="115" y="121">2</text><text x="165" y="106">3</text>
+      <text x="215" y="116">4</text><text x="263" y="141">5</text>
+    </g>
+  </svg>
+  <div class="worksheet-box">
+    <h3>Five-finger position</h3>
+    <p style="font-size:11pt;">Right thumb on red C. Each finger gets the next door key: 1 C, 2 D, 3 E, 4 F, 5 G. Keep a bubble under the palm.</p>
+    <div class="keyboard" style="height:42mm; margin-top:4mm;">
+      <div class="white"><span class="key-label finger" style="background:var(--red)">C<small>1</small></span></div>
+      <div class="white"><span class="key-label finger" style="background:var(--orange); color:#111">D<small>2</small></span></div>
+      <div class="white"><span class="key-label finger" style="background:var(--yellow); color:#111">E<small>3</small></span></div>
+      <div class="white"><span class="key-label finger" style="background:var(--green)">F<small>4</small></span></div>
+      <div class="white"><span class="key-label finger" style="background:var(--blue)">G<small>5</small></span></div>
+      <div class="white"></div><div class="white"></div><div class="white"></div>
+      <div class="black b1"></div><div class="black b2"></div><div class="black b3"></div><div class="black b4"></div><div class="black b5"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 5: COLOR HUNT WORKSHEET ============ -->
+<section class="page">
+  <h2>Color Hunt</h2>
+  <p class="sub">Trace each key, then color it to match the rainbow.</p>
+  <div class="keyboard" style="height:55mm;">
+    <div class="white"><span class="key-label blank">C</span></div>
+    <div class="white"><span class="key-label blank">D</span></div>
+    <div class="white"><span class="key-label blank">E</span></div>
+    <div class="white"><span class="key-label blank">F</span></div>
+    <div class="white"><span class="key-label blank">G</span></div>
+    <div class="white"><span class="key-label blank">A</span></div>
+    <div class="white"><span class="key-label blank">B</span></div>
+    <div class="white"><span class="key-label blank">C</span></div>
+    <div class="black b1"></div><div class="black b2"></div><div class="black b3"></div><div class="black b4"></div><div class="black b5"></div>
+  </div>
+  <div class="worksheet-box" style="margin-top:6mm;">
+    <h3>Steady beat</h3>
+    <p style="font-size:11pt;">Tap each circle and say “1, 2, 3, 4.” Keep the speed the same.</p>
+    <div class="beat-row"><div class="beat">1</div><div class="beat">2</div><div class="beat">3</div><div class="beat">4</div><div class="beat">1</div><div class="beat">2</div><div class="beat">3</div><div class="beat">4</div></div>
+    <div class="beat-row" style="margin-top:5mm; gap:3mm;">
+      <div class="beat" style="border-radius:3mm; width:18mm; flex:none; font-size:11pt;">walk</div>
+      <div class="beat" style="border-radius:3mm; width:18mm; flex:none; font-size:11pt;">walk</div>
+      <div class="beat" style="border-radius:3mm; width:28mm; flex:none; font-size:10pt;">run-ning</div>
+      <div class="beat" style="border-radius:3mm; width:18mm; flex:none; font-size:11pt;">walk</div>
+      <div class="beat" style="border-radius:3mm; width:28mm; flex:none; font-size:10pt;">run-ning</div>
+      <div class="beat" style="border-radius:3mm; width:18mm; flex:none; font-size:11pt;">walk</div>
+    </div>
+  </div>
+  <div class="worksheet-box">
+    <h3>My name is</h3>
+    <div class="write-line"></div>
+    <h3 style="margin-top:6mm;">Today I found</h3>
+    <div class="write-line"></div>
+  </div>
+</section>
+
+<!-- ============ PAGE 6: LETTER-ONLY CHARTS ============ -->
+<section class="page compact">
+  <h2>Letter Charts</h2>
+  <p class="sub">Same melodies, no color. Use when color is not available.</p>
+  <h3>Hot Cross Buns</h3>
+  <div class="phrase plain">
+    <span class="note"><b>E</b></span><span class="note"><b>D</b></span><span class="note"><b>C</b></span><span class="rest">rest</span>
+    <span class="note"><b>E</b></span><span class="note"><b>D</b></span><span class="note"><b>C</b></span><span class="rest">rest</span>
+  </div>
+  <div class="phrase plain">
+    <span class="note"><b>C</b></span><span class="note"><b>C</b></span><span class="note"><b>C</b></span><span class="note"><b>C</b></span>
+    <span class="note"><b>D</b></span><span class="note"><b>D</b></span><span class="note"><b>D</b></span><span class="note"><b>D</b></span>
+  </div>
+  <div class="phrase plain">
+    <span class="note"><b>E</b></span><span class="note"><b>D</b></span><span class="note"><b>C</b></span><span class="rest">rest</span>
+  </div>
+
+  <h3 style="margin-top:5mm;">Mary Had a Little Lamb</h3>
+  <div class="phrase plain">
+    <span class="note"><b>E</b></span><span class="note"><b>D</b></span><span class="note"><b>C</b></span><span class="note"><b>D</b></span>
+    <span class="note"><b>E</b></span><span class="note"><b>E</b></span><span class="note"><b>E</b></span>
+  </div>
+  <div class="phrase plain">
+    <span class="note"><b>D</b></span><span class="note"><b>D</b></span><span class="note"><b>D</b></span>
+    <span class="note"><b>E</b></span><span class="note"><b>G</b></span><span class="note"><b>G</b></span>
+  </div>
+  <div class="phrase plain">
+    <span class="note"><b>E</b></span><span class="note"><b>D</b></span><span class="note"><b>C</b></span><span class="note"><b>D</b></span>
+    <span class="note"><b>E</b></span><span class="note"><b>E</b></span><span class="note"><b>E</b></span><span class="note"><b>E</b></span>
+  </div>
+  <div class="phrase plain">
+    <span class="note"><b>D</b></span><span class="note"><b>D</b></span><span class="note"><b>E</b></span><span class="note"><b>D</b></span><span class="note"><b>C</b></span>
+  </div>
+
+  <h3 style="margin-top:5mm;">Twinkle, Twinkle, Little Star</h3>
+  <div class="phrase plain">
+    <span class="note"><b>C</b></span><span class="note"><b>C</b></span><span class="note"><b>G</b></span><span class="note"><b>G</b></span>
+    <span class="note"><b>A</b></span><span class="note"><b>A</b></span><span class="note"><b>G</b></span>
+  </div>
+  <div class="phrase plain">
+    <span class="note"><b>F</b></span><span class="note"><b>F</b></span><span class="note"><b>E</b></span><span class="note"><b>E</b></span>
+    <span class="note"><b>D</b></span><span class="note"><b>D</b></span><span class="note"><b>C</b></span>
+  </div>
+  <p class="small">Then play the whole song from the color chart on page 10.</p>
+</section>
+
+<!-- ============ PAGE 7: SHAPE-ONLY CHARTS ============ -->
+<section class="page">
+  <h2>Shape Charts</h2>
+  <p class="sub">Colorblind-friendly. Match the shape, not the color.</p>
+  <div class="legend-grid" style="grid-template-columns:repeat(7,1fr); gap:2mm; margin-bottom:5mm;">
+    <div class="color-card c-red" style="min-height:20mm; padding:1mm;"><div class="shape">●</div><div class="name">C</div></div>
+    <div class="color-card c-orange" style="min-height:20mm; padding:1mm;"><div class="shape">▲</div><div class="name">D</div></div>
+    <div class="color-card c-yellow" style="min-height:20mm; padding:1mm;"><div class="shape">★</div><div class="name">E</div></div>
+    <div class="color-card c-green" style="min-height:20mm; padding:1mm;"><div class="shape">■</div><div class="name">F</div></div>
+    <div class="color-card c-blue" style="min-height:20mm; padding:1mm;"><div class="shape">◆</div><div class="name">G</div></div>
+    <div class="color-card c-purple" style="min-height:20mm; padding:1mm;"><div class="shape">♥</div><div class="name">A</div></div>
+    <div class="color-card c-pink" style="min-height:20mm; padding:1mm;"><div class="shape">⬢</div><div class="name">B</div></div>
+  </div>
+
+  <h3>Hot Cross Buns</h3>
+  <div class="phrase shapes">
+    <span class="note n-E"><b>★</b></span><span class="note n-D"><b>▲</b></span><span class="note n-C"><b>●</b></span><span class="rest">rest</span>
+    <span class="note n-E"><b>★</b></span><span class="note n-D"><b>▲</b></span><span class="note n-C"><b>●</b></span><span class="rest">rest</span>
+  </div>
+  <div class="phrase shapes">
+    <span class="note n-C"><b>●</b></span><span class="note n-C"><b>●</b></span><span class="note n-C"><b>●</b></span><span class="note n-C"><b>●</b></span>
+    <span class="note n-D"><b>▲</b></span><span class="note n-D"><b>▲</b></span><span class="note n-D"><b>▲</b></span><span class="note n-D"><b>▲</b></span>
+  </div>
+  <div class="phrase shapes">
+    <span class="note n-E"><b>★</b></span><span class="note n-D"><b>▲</b></span><span class="note n-C"><b>●</b></span><span class="rest">rest</span>
+  </div>
+
+  <h3 style="margin-top:6mm;">Mary Had a Little Lamb</h3>
+  <div class="phrase shapes">
+    <span class="note n-E"><b>★</b></span><span class="note n-D"><b>▲</b></span><span class="note n-C"><b>●</b></span><span class="note n-D"><b>▲</b></span>
+    <span class="note n-E"><b>★</b></span><span class="note n-E"><b>★</b></span><span class="note n-E"><b>★</b></span>
+  </div>
+  <div class="phrase shapes">
+    <span class="note n-D"><b>▲</b></span><span class="note n-D"><b>▲</b></span><span class="note n-D"><b>▲</b></span>
+    <span class="note n-E"><b>★</b></span><span class="note n-G"><b>◆</b></span><span class="note n-G"><b>◆</b></span>
+  </div>
+  <div class="phrase shapes">
+    <span class="note n-E"><b>★</b></span><span class="note n-D"><b>▲</b></span><span class="note n-C"><b>●</b></span><span class="note n-D"><b>▲</b></span>
+    <span class="note n-E"><b>★</b></span><span class="note n-E"><b>★</b></span><span class="note n-E"><b>★</b></span><span class="note n-E"><b>★</b></span>
+  </div>
+  <div class="phrase shapes">
+    <span class="note n-D"><b>▲</b></span><span class="note n-D"><b>▲</b></span><span class="note n-E"><b>★</b></span><span class="note n-D"><b>▲</b></span><span class="note n-C"><b>●</b></span>
+  </div>
+
+  <h3 style="margin-top:6mm;">Twinkle, Twinkle, Little Star (first two phrases)</h3>
+  <div class="phrase shapes">
+    <span class="note n-C"><b>●</b></span><span class="note n-C"><b>●</b></span><span class="note n-G"><b>◆</b></span><span class="note n-G"><b>◆</b></span>
+    <span class="note n-A"><b>♥</b></span><span class="note n-A"><b>♥</b></span><span class="note n-G"><b>◆</b></span>
+  </div>
+  <div class="phrase shapes">
+    <span class="note n-F"><b>■</b></span><span class="note n-F"><b>■</b></span><span class="note n-E"><b>★</b></span><span class="note n-E"><b>★</b></span>
+    <span class="note n-D"><b>▲</b></span><span class="note n-D"><b>▲</b></span><span class="note n-C"><b>●</b></span>
+  </div>
+</section>
+
+<!-- ============ PAGE 8: HOT CROSS BUNS ============ -->
+<section class="page">
+  <h2 class="song-title">Hot Cross Buns</h2>
+  <p class="song-meta">Notes: E D C · Fingers 3 2 1 · Three-note song</p>
+  <div class="lyrics">Hot cross buns, hot cross buns, one a penny, two a penny, hot cross buns.</div>
+  <div class="phrase">
+    <span class="note n-E"><b>E</b><small>Hot</small></span>
+    <span class="note n-D"><b>D</b><small>cross</small></span>
+    <span class="note n-C"><b>C</b><small>buns</small></span>
+    <span class="rest">rest</span>
+    <span class="note n-E"><b>E</b><small>Hot</small></span>
+    <span class="note n-D"><b>D</b><small>cross</small></span>
+    <span class="note n-C"><b>C</b><small>buns</small></span>
+    <span class="rest">rest</span>
+  </div>
+  <div class="phrase">
+    <span class="note n-C"><b>C</b><small>one</small></span>
+    <span class="note n-C"><b>C</b><small>a</small></span>
+    <span class="note n-C"><b>C</b><small>pen</small></span>
+    <span class="note n-C"><b>C</b><small>ny</small></span>
+    <span class="note n-D"><b>D</b><small>two</small></span>
+    <span class="note n-D"><b>D</b><small>a</small></span>
+    <span class="note n-D"><b>D</b><small>pen</small></span>
+    <span class="note n-D"><b>D</b><small>ny</small></span>
+  </div>
+  <div class="phrase">
+    <span class="note n-E"><b>E</b><small>Hot</small></span>
+    <span class="note n-D"><b>D</b><small>cross</small></span>
+    <span class="note n-C"><b>C</b><small>buns</small></span>
+    <span class="rest">rest</span>
+  </div>
+  <p class="small">Say the colors in rhythm first: “yellow orange red, rest…”</p>
+</section>
+
+<!-- ============ PAGE 9: MARY ============ -->
+<section class="page">
+  <h2 class="song-title">Mary Had a Little Lamb</h2>
+  <p class="song-meta">Notes: E D C D E G · Fingers 3 2 1 2 3 5</p>
+  <div class="lyrics">Mary had a little lamb, little lamb, little lamb. Mary had a little lamb, its fleece was white as snow.</div>
+  <div class="phrase">
+    <span class="note n-E"><b>E</b><small>Ma</small></span>
+    <span class="note n-D"><b>D</b><small>ry</small></span>
+    <span class="note n-C"><b>C</b><small>had</small></span>
+    <span class="note n-D"><b>D</b><small>a</small></span>
+    <span class="note n-E"><b>E</b><small>lit</small></span>
+    <span class="note n-E"><b>E</b><small>tle</small></span>
+    <span class="note n-E"><b>E</b><small>lamb</small></span>
+  </div>
+  <div class="phrase">
+    <span class="note n-D"><b>D</b><small>lit</small></span>
+    <span class="note n-D"><b>D</b><small>tle</small></span>
+    <span class="note n-D"><b>D</b><small>lamb</small></span>
+    <span class="note n-E"><b>E</b><small>Ma</small></span>
+    <span class="note n-G"><b>G</b><small>ry</small></span>
+    <span class="note n-G"><b>G</b><small>had</small></span>
+  </div>
+  <div class="phrase">
+    <span class="note n-E"><b>E</b><small>lit</small></span>
+    <span class="note n-D"><b>D</b><small>tle</small></span>
+    <span class="note n-C"><b>C</b><small>lamb</small></span>
+    <span class="note n-D"><b>D</b><small>its</small></span>
+    <span class="note n-E"><b>E</b><small>fleece</small></span>
+    <span class="note n-E"><b>E</b><small>was</small></span>
+    <span class="note n-E"><b>E</b><small>white</small></span>
+    <span class="note n-E"><b>E</b><small>as</small></span>
+  </div>
+  <div class="phrase">
+    <span class="note n-D"><b>D</b><small>snow</small></span>
+    <span class="note n-D"><b>D</b></span>
+    <span class="note n-E"><b>E</b></span>
+    <span class="note n-D"><b>D</b></span>
+    <span class="note n-C"><b>C</b></span>
+  </div>
+  <p class="small">The leap to blue G is the only skip. Practise “E G G” three times alone.</p>
+</section>
+
+<!-- ============ PAGE 10: TWINKLE ============ -->
+<section class="page compact">
+  <h2 class="song-title">Twinkle, Twinkle, Little Star</h2>
+  <p class="song-meta">Notes: C D E F G A · Five-finger position, with a reach to purple A</p>
+  <div class="phrase">
+    <span class="note n-C"><b>C</b><small>Twin</small></span><span class="note n-C"><b>C</b><small>kle</small></span>
+    <span class="note n-G"><b>G</b><small>twin</small></span><span class="note n-G"><b>G</b><small>kle</small></span>
+    <span class="note n-A"><b>A</b><small>lit</small></span><span class="note n-A"><b>A</b><small>tle</small></span>
+    <span class="note n-G"><b>G</b><small>star</small></span>
+  </div>
+  <div class="phrase">
+    <span class="note n-F"><b>F</b><small>how</small></span><span class="note n-F"><b>F</b><small>I</small></span>
+    <span class="note n-E"><b>E</b><small>won</small></span><span class="note n-E"><b>E</b><small>der</small></span>
+    <span class="note n-D"><b>D</b><small>what</small></span><span class="note n-D"><b>D</b><small>you</small></span>
+    <span class="note n-C"><b>C</b><small>are</small></span>
+  </div>
+  <div class="phrase">
+    <span class="note n-G"><b>G</b><small>Up</small></span><span class="note n-G"><b>G</b><small>a</small></span>
+    <span class="note n-F"><b>F</b><small>bove</small></span><span class="note n-F"><b>F</b><small>the</small></span>
+    <span class="note n-E"><b>E</b><small>world</small></span><span class="note n-E"><b>E</b><small>so</small></span>
+    <span class="note n-D"><b>D</b><small>high</small></span>
+  </div>
+  <div class="phrase">
+    <span class="note n-G"><b>G</b><small>like</small></span><span class="note n-G"><b>G</b><small>a</small></span>
+    <span class="note n-F"><b>F</b><small>dia</small></span><span class="note n-F"><b>F</b><small>mond</small></span>
+    <span class="note n-E"><b>E</b><small>in</small></span><span class="note n-E"><b>E</b><small>the</small></span>
+    <span class="note n-D"><b>D</b><small>sky</small></span>
+  </div>
+  <div class="phrase">
+    <span class="note n-C"><b>C</b><small>Twin</small></span><span class="note n-C"><b>C</b><small>kle</small></span>
+    <span class="note n-G"><b>G</b><small>twin</small></span><span class="note n-G"><b>G</b><small>kle</small></span>
+    <span class="note n-A"><b>A</b><small>lit</small></span><span class="note n-A"><b>A</b><small>tle</small></span>
+    <span class="note n-G"><b>G</b><small>star</small></span>
+  </div>
+  <div class="phrase">
+    <span class="note n-F"><b>F</b><small>how</small></span><span class="note n-F"><b>F</b><small>I</small></span>
+    <span class="note n-E"><b>E</b><small>won</small></span><span class="note n-E"><b>E</b><small>der</small></span>
+    <span class="note n-D"><b>D</b><small>what</small></span><span class="note n-D"><b>D</b><small>you</small></span>
+    <span class="note n-C"><b>C</b><small>are</small></span>
+  </div>
+</section>
+
+<!-- ============ PAGE 11: ODE ============ -->
+<section class="page">
+  <h2 class="song-title">Ode to Joy</h2>
+  <p class="song-meta">First phrase · Notes: C D E F G · Stay in C position</p>
+  <div class="lyrics">Sing on “da”: up four notes, down four notes.</div>
+  <div class="phrase">
+    <span class="note n-E"><b>E</b></span><span class="note n-E"><b>E</b></span>
+    <span class="note n-F"><b>F</b></span><span class="note n-G"><b>G</b></span>
+    <span class="note n-G"><b>G</b></span><span class="note n-F"><b>F</b></span>
+    <span class="note n-E"><b>E</b></span><span class="note n-D"><b>D</b></span>
+  </div>
+  <div class="phrase">
+    <span class="note n-C"><b>C</b></span><span class="note n-C"><b>C</b></span>
+    <span class="note n-D"><b>D</b></span><span class="note n-E"><b>E</b></span>
+    <span class="note n-E"><b>E</b></span><span class="note n-D"><b>D</b></span>
+    <span class="note n-D"><b>D</b><small>hold</small></span>
+  </div>
+  <div class="phrase" style="margin-top:6mm;">
+    <span class="note n-E"><b>E</b></span><span class="note n-E"><b>E</b></span>
+    <span class="note n-F"><b>F</b></span><span class="note n-G"><b>G</b></span>
+    <span class="note n-G"><b>G</b></span><span class="note n-F"><b>F</b></span>
+    <span class="note n-E"><b>E</b></span><span class="note n-D"><b>D</b></span>
+  </div>
+  <div class="phrase">
+    <span class="note n-C"><b>C</b></span><span class="note n-C"><b>C</b></span>
+    <span class="note n-D"><b>D</b></span><span class="note n-E"><b>E</b></span>
+    <span class="note n-D"><b>D</b></span><span class="note n-C"><b>C</b></span>
+    <span class="note n-C"><b>C</b><small>hold</small></span>
+  </div>
+  <p class="small">Draw the wave in the air: up, up, down, down. Play the second line softer.</p>
+</section>
+
+<!-- ============ PAGE 12: JINGLE ============ -->
+<section class="page compact">
+  <h2 class="song-title">Jingle Bells</h2>
+  <p class="song-meta">Chorus · Notes: C D E F G · Fingers 1–5</p>
+  <div class="phrase">
+    <span class="note n-E"><b>E</b><small>Jin</small></span><span class="note n-E"><b>E</b><small>gle</small></span><span class="note n-E"><b>E</b><small>bells</small></span><span class="rest">rest</span>
+    <span class="note n-E"><b>E</b><small>Jin</small></span><span class="note n-E"><b>E</b><small>gle</small></span><span class="note n-E"><b>E</b><small>bells</small></span><span class="rest">rest</span>
+  </div>
+  <div class="phrase">
+    <span class="note n-E"><b>E</b><small>jin</small></span><span class="note n-G"><b>G</b><small>gle</small></span>
+    <span class="note n-C"><b>C</b><small>all</small></span><span class="note n-D"><b>D</b><small>the</small></span>
+    <span class="note n-E"><b>E</b><small>way</small></span><span class="rest">hold 4</span>
+  </div>
+  <div class="phrase">
+    <span class="note n-F"><b>F</b><small>Oh</small></span><span class="note n-F"><b>F</b><small>what</small></span>
+    <span class="note n-F"><b>F</b><small>fun</small></span><span class="note n-F"><b>F</b><small>it</small></span>
+    <span class="note n-F"><b>F</b><small>is</small></span><span class="note n-E"><b>E</b><small>to</small></span>
+    <span class="note n-E"><b>E</b><small>ride</small></span><span class="note n-E"><b>E</b><small>in</small></span>
+  </div>
+  <div class="phrase">
+    <span class="note n-E"><b>E</b><small>a</small></span><span class="note n-D"><b>D</b><small>one</small></span>
+    <span class="note n-D"><b>D</b><small>horse</small></span><span class="note n-E"><b>E</b><small>o</small></span>
+    <span class="note n-D"><b>D</b><small>pen</small></span><span class="note n-G"><b>G</b><small>sleigh</small></span>
+  </div>
+  <p class="small">Two-hand version: hold a red C in the left hand through the whole chorus.</p>
+</section>
+
+<!-- ============ PAGE 13: COMPOSE ============ -->
+<section class="page">
+  <h2>My Own Song</h2>
+  <p class="sub">Color eight boxes, then play your song. Use any colors you like.</p>
+  <div class="legend-grid" style="grid-template-columns:repeat(7,1fr); gap:2mm;">
+    <div class="color-card c-red" style="min-height:20mm; padding:1mm;"><div class="letter" style="font-size:20pt;">C</div></div>
+    <div class="color-card c-orange" style="min-height:20mm; padding:1mm;"><div class="letter" style="font-size:20pt;">D</div></div>
+    <div class="color-card c-yellow" style="min-height:20mm; padding:1mm;"><div class="letter" style="font-size:20pt;">E</div></div>
+    <div class="color-card c-green" style="min-height:20mm; padding:1mm;"><div class="letter" style="font-size:20pt;">F</div></div>
+    <div class="color-card c-blue" style="min-height:20mm; padding:1mm;"><div class="letter" style="font-size:20pt;">G</div></div>
+    <div class="color-card c-purple" style="min-height:20mm; padding:1mm;"><div class="letter" style="font-size:20pt;">A</div></div>
+    <div class="color-card c-pink" style="min-height:20mm; padding:1mm;"><div class="letter" style="font-size:20pt;">B</div></div>
+  </div>
+  <div class="compose-grid">
+    <div class="compose-box"><span>1</span></div><div class="compose-box"><span>2</span></div>
+    <div class="compose-box"><span>3</span></div><div class="compose-box"><span>4</span></div>
+    <div class="compose-box"><span>5</span></div><div class="compose-box"><span>6</span></div>
+    <div class="compose-box"><span>7</span></div><div class="compose-box"><span>8</span></div>
+  </div>
+  <div class="worksheet-box">
+    <h3>My song is called</h3>
+    <div class="write-line"></div>
+    <h3 style="margin-top:6mm;">It sounds</h3>
+    <p style="font-size:11pt;">☐ happy &nbsp;&nbsp; ☐ sleepy &nbsp;&nbsp; ☐ silly &nbsp;&nbsp; ☐ spooky &nbsp;&nbsp; ☐ like rain</p>
+  </div>
+</section>
+
+<!-- ============ PAGE 14: STAFF ============ -->
+<section class="page">
+  <h2>From Colors to Lines</h2>
+  <p class="sub">The notehead sits on a line or in a space. Its color still tells you the key.</p>
+  <div class="staff-wrap">
+    <svg viewBox="0 0 800 240" role="img" aria-label="Colored notes C to A on a five-line staff">
+      <g stroke="#333" stroke-width="2">
+        <line x1="100" y1="60" x2="770" y2="60"/><line x1="100" y1="85" x2="770" y2="85"/>
+        <line x1="100" y1="110" x2="770" y2="110"/><line x1="100" y1="135" x2="770" y2="135"/>
+        <line x1="100" y1="160" x2="770" y2="160"/>
+      </g>
+      <text x="118" y="150" font-size="86" fill="#333" font-family="serif">𝄞</text>
+      <line x1="150" y1="185" x2="210" y2="185" stroke="#333" stroke-width="2"/>
+      <g font-size="15" font-weight="bold" text-anchor="middle" font-family="Verdana, sans-serif">
+        <circle cx="180" cy="185" r="14" fill="#D32F2F"/><text x="180" y="190" fill="#fff">C</text>
+        <circle cx="260" cy="172" r="14" fill="#F57C00"/><text x="260" y="177" fill="#111">D</text>
+        <circle cx="340" cy="160" r="14" fill="#FBC02D"/><text x="340" y="165" fill="#111">E</text>
+        <circle cx="420" cy="147" r="14" fill="#388E3C"/><text x="420" y="152" fill="#fff">F</text>
+        <circle cx="500" cy="135" r="14" fill="#1976D2"/><text x="500" y="140" fill="#fff">G</text>
+        <circle cx="580" cy="122" r="14" fill="#7B1FA2"/><text x="580" y="127" fill="#fff">A</text>
+      </g>
+      <g font-size="13" fill="#555" text-anchor="middle" font-family="Verdana, sans-serif">
+        <text x="180" y="215">C</text><text x="260" y="215">D</text><text x="340" y="215">E</text>
+        <text x="420" y="215">F</text><text x="500" y="215">G</text><text x="580" y="215">A</text>
+      </g>
+    </svg>
+  </div>
+  <p class="small" style="margin-bottom:6mm;">Line notes: E G B D F. Space notes: F A C E. For now, follow the color and the letter.</p>
+  <div class="staff-wrap">
+    <svg viewBox="0 0 800 240" role="img" aria-label="Blank staff for coloring">
+      <g stroke="#333" stroke-width="2">
+        <line x1="100" y1="60" x2="770" y2="60"/><line x1="100" y1="85" x2="770" y2="85"/>
+        <line x1="100" y1="110" x2="770" y2="110"/><line x1="100" y1="135" x2="770" y2="135"/>
+        <line x1="100" y1="160" x2="770" y2="160"/>
+      </g>
+      <text x="118" y="150" font-size="86" fill="#333" font-family="serif">𝄞</text>
+      <line x1="150" y1="185" x2="210" y2="185" stroke="#333" stroke-width="2"/>
+      <g fill="#fff" stroke="#444" stroke-width="2">
+        <circle cx="180" cy="185" r="14"/><circle cx="260" cy="172" r="14"/>
+        <circle cx="340" cy="160" r="14"/><circle cx="420" cy="147" r="14"/>
+        <circle cx="500" cy="135" r="14"/><circle cx="580" cy="122" r="14"/>
+      </g>
+      <g font-size="13" fill="#777" text-anchor="middle" font-family="Verdana, sans-serif">
+        <text x="180" y="215">C</text><text x="260" y="215">D</text><text x="340" y="215">E</text>
+        <text x="420" y="215">F</text><text x="500" y="215">G</text><text x="580" y="215">A</text>
+      </g>
+    </svg>
+  </div>
+  <p class="small">Color the empty noteheads the right color, then play C D E F G A.</p>
+</section>
+
+<!-- ============ PAGE 15: PROGRESS ============ -->
+<section class="page">
+  <h2>My Piano Journey</h2>
+  <p class="sub">One sticker or star for every lesson.</p>
+  <div class="sticker-grid">
+    <div class="sticker"><div class="num">1</div><div class="star">☆</div><div class="small">Hello, piano</div></div>
+    <div class="sticker"><div class="num">2</div><div class="star">☆</div><div class="small">Loud and soft</div></div>
+    <div class="sticker"><div class="num">3</div><div class="star">☆</div><div class="small">Rainbow keys</div></div>
+    <div class="sticker"><div class="num">4</div><div class="star">☆</div><div class="small">Steady beat</div></div>
+    <div class="sticker"><div class="num">5</div><div class="star">☆</div><div class="small">Hot Cross Buns</div></div>
+    <div class="sticker"><div class="num">6</div><div class="star">☆</div><div class="small">Walk and run</div></div>
+    <div class="sticker"><div class="num">7</div><div class="star">☆</div><div class="small">Mary's lamb</div></div>
+    <div class="sticker"><div class="num">8</div><div class="star">☆</div><div class="small">My own song</div></div>
+    <div class="sticker"><div class="num">9</div><div class="star">☆</div><div class="small">Lines and spaces</div></div>
+    <div class="sticker"><div class="num">10</div><div class="star">☆</div><div class="small">Steps and skips</div></div>
+    <div class="sticker"><div class="num">11</div><div class="star">☆</div><div class="small">Two hands</div></div>
+    <div class="sticker"><div class="num">12</div><div class="star">☆</div><div class="small">Recital</div></div>
+  </div>
+  <div class="worksheet-box" style="margin-top:8mm;">
+    <h3>I am proud of</h3>
+    <div class="write-line"></div><div class="write-line"></div>
+    <h3 style="margin-top:6mm;">Next I want to learn</h3>
+    <div class="write-line"></div>
+  </div>
+</section>
+
+<!-- ============ PAGE 16: CERTIFICATE ============ -->
+<section class="page">
+  <div class="certificate">
+    <div class="rainbow" style="color:#D32F2F;">●</div>
+    <div class="rainbow" style="color:#F57C00; margin-top:-3mm;">▲</div>
+    <div class="rainbow" style="color:#FBC02D; margin-top:-3mm;">★</div>
+    <div class="rainbow" style="color:#388E3C; margin-top:-3mm;">■</div>
+    <div class="rainbow" style="color:#1976D2; margin-top:-3mm;">◆</div>
+    <div class="rainbow" style="color:#7B1FA2; margin-top:-3mm;">♥</div>
+    <h2>Certificate of Achievement</h2>
+    <p>This certificate is awarded to</p>
+    <div class="name"></div>
+    <p>for completing <b>Little Rainbows Piano</b>,<br>
+    twelve weeks of colors, rhythms, and first melodies.</p>
+    <p style="margin-top:6mm;">Now able to play first melodies including<br><b>Hot Cross Buns · Mary Had a Little Lamb · Twinkle, Twinkle, Little Star</b></p>
+    <div class="sig">
+      <div>Date</div>
+      <div>Teacher</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
